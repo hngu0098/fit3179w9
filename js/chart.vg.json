@@ -1,0 +1,37 @@
+{
+  
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Airbnb Data in New York City",
+    "width": 500,
+    "height": 300,
+    "projection": {"type": "albersUsa"},
+    "data": {
+      "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+        "x": {
+            "field": "Neighbourhood Group",
+            "type": "nominal",
+            "axis": {
+                "tickCount": 7
+            }
+        },
+        "y":{
+            "field": "Average availability per year",
+            "type": "quantitative",
+            "title": "Average availability per year (days)"
+        },
+        "color": {
+            "field": "County",
+            "type": "nominal"
+        },
+        "tooltip": [
+            {"field": "Average Price", "title": "Average Price of Airbnb"},
+            {"field": "Number of Instant Book"},
+            {"field": "Number of calculated host listings count"}
+        ]
+    }
+  
+  }
+  
