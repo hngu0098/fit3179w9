@@ -29,39 +29,37 @@
       // Assign the specification to a local variable vlSpec.
       var vlSpec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-        "title": "Airbnb Data in New York City",
-        "width": 500,
-        "height": 300,
-        "projection": {"type": "albersUsa"},
-        "data": {
-          "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/ne_10m_admin_2_counties.json",
-          "format": {
-            "type": "topojson", "feature": "ne_10m_admin_2_counties"
-          }
-        },
-        "transform": [
-          {
-            "lookup": "properties.NAME",
-            "from": {
-              "data": {
-                "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/Airbnb%20Data.csv"
-              },
-              "key": "county"
+    "title": "Airbnb Data in New York City",
+    "width": 500,
+    "height": 300,
+    "projection": {"type": "albersUsa"},
+    "data": {
+      "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+        "x": {
+            "field": "Neighbourhood Group",
+            "type": "nominal",
+            "axis": {
+                "tickCount": 7
             }
-          }
-        ],
-        "mark": "geoshape",
-        "encoding": {
-          "color": {
-            "field": "properties.NAME", 
-            "title": "County",
+        },
+        "y":{
+            "field": "Average availability per year",
+            "type": "quantitative",
+            "title": "Average availability per year (days)"
+        },
+        "color": {
+            "field": "County",
             "type": "nominal"
-          },
-
-          "tooltip": [
-            {"field": "properties.NAME_EN", "type": "nominal", "title": "Borough"}
-          ]
-        }
+        },
+        "tooltip": [
+            {"field": "Average Price", "title": "Average Price of Airbnb"},
+            {"field": "Number of Instant Book"},
+            {"field": "Number of calculated host listings count"}
+        ]
+    }
       };
 
       // Embed the visualization in the container with id `vis`
