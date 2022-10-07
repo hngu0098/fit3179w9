@@ -1,0 +1,42 @@
+{
+  
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Airbnb Data in New York City",
+  "width": 500,
+  "height": 300,
+  "projection": {"type": "albersUsa"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/js/ne_10m_admin_2_counties.json",
+    "format": {
+      "type": "topojson", "feature": "ne_10m_admin_2_counties"
+    }
+  },
+  
+  "transform": [
+    {
+      "lookup": "properties.NAME",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20Data.csv"
+        },
+        "key": "County"
+      }
+    }
+  ],
+  "mark": "geoshape",
+  "encoding": {
+    "color": {
+      "field": "properties.NAME", 
+      "title": "County",
+      "type": "nominal",
+      "scale": {
+        "range": ["#FFA500", "#800080", "#00008B", "#800000", "#008000"]
+      }
+    },
+
+    "tooltip": [
+      {"field": "properties.NAME_EN", "type": "nominal", "title": "Neighbourhood Group"}
+    ]
+  }
+
+}
