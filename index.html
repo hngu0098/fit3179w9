@@ -8,7 +8,15 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+      integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
     <style media="screen">
       /* Add space between Vega-Embed links  */
@@ -21,49 +29,59 @@
 
   </head>
   <body>
-    <h1>Vega-Lite Visualization</h1>
+    <div class="page">
+   
+      <h1>Vega-Lite Visualizations</h1>
+
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+          <div class="description description-left">
+            <h2>Map</h2>
+            <p>This is the map of New York City, showing where all the Airbnb are at in the city. 
+              It is divided into 5 counties (borough): Bronx (Bronx), Kings (Brooklyn), 
+              New York (Manhattan), Queens (Queens) and Richmond (Staten Island).</p>
+          </div>
+        </div>
+        <div class="pure-u-1-2">
+          <div id="vis1" class="vis-container"></div>
+        </div>
+      </div>
+
+      <!-- pure grid group -->
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+          <div class="description description-left">
+            <h2>Chart</h2>
+            <p>This chart is about </p>
+          </div>
+        </div>
+        <div class="pure-u-1-2">
+          <div id="vis1" class="vis-container"></div>
+        </div>
+      </div>
+    <!-- end pure grid group -->
+    </div>
+
+
     <!-- Container for the visualization -->
-    <div id="vis"></div>
 
-    <script>
-      // Assign the specification to a local variable vlSpec.
-      var vlSpec = {
-        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Airbnb Data in New York City",
-    "width": 500,
-    "height": 300,
-    "projection": {"type": "albersUsa"},
-    "data": {
-      "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb.csv"
-    },
-    "mark": "bar",
-    "encoding": {
-        "x": {
-            "field": "Neighbourhood Group",
-            "type": "nominal",
-            "axis": {
-                "tickCount": 7
-            }
-        },
-        "y":{
-            "field": "Average availability per year",
-            "type": "quantitative",
-            "title": "Average availability per year (days)"
-        },
-        "color": {
-            "field": "County",
-            "type": "nominal"
-        },
-        "tooltip": [
-            {"field": "Average Price", "title": "Average Price of Airbnb"},
-            {"field": "Number of Instant Book"},
-            {"field": "Number of calculated host listings count"}
-        ]
-    }
-      };
-
-      // Embed the visualization in the container with id `vis`
-      vegaEmbed('#vis', vlSpec);
+    <script type="text/javascript">
+      var specVis1 = "js/map.vg.json";
+      var specVis2 = "js/chart.vg.json";
+  
+      vegaEmbed('#vis1', specVis1, { "actions": false });
+  
+      vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+  
+      vegaEmbed('#vis3', specVis1, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+  
+      vegaEmbed('#vis4', specVis2, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
     </script>
   </body>
 </html>
