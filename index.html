@@ -25,8 +25,6 @@
       }
     </style>
 
-    
-
   </head>
   <body>
     <div class="page">
@@ -52,20 +50,22 @@
             <p>This chart is about </p>
         </div>
         <div class="pure-u-1-2">
-          <div id="vis1" class="vis-container"></div>
+          <div id="vis2" class="vis-container"></div>
         </div>
       </div>
-    <!-- end pure grid group -->
-    
+      <!-- end pure grid group -->
 
+    </div>
 
     <!-- Container for the visualization -->
 
     <script type="text/javascript">
-      var specVis1 = "js/map.vg.json";
-      var specVis2 = "js/chart.vg.json";
+      var specVis1 = "./js/map.vg.json";
+      var specVis2 = "./js/chart.vg.json";
   
-      vegaEmbed('#vis1', specVis1, { "actions": false });
+      vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
   
       vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -78,10 +78,9 @@
       vegaEmbed('#vis4', specVis2, { "actions": false }).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
+
     </script>
 
-    </div>
-   
-      
   </body>
+
 </html>
