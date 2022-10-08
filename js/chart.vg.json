@@ -34,7 +34,7 @@
                     "scale": {
                         "range": ["#FFA500", "#800080", "#00008B", "#800000", "#008000"]
                     },
-                    "legend": ""
+                    "legend": null
                 },
 
                 "fillOpacity": {
