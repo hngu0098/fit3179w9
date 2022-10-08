@@ -1,5 +1,4 @@
 {
-  
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Airbnb Data in New York City",
     "width": 500,
@@ -8,33 +7,81 @@
     "data": {
       "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb.csv"
     },
-    "mark": "bar",
     "encoding": {
         "x": {
-            "field": "Neighbourhood Group",
-            "type": "nominal",
-            "axis": {
-                "tickCount": 7
-            }
+            "field": "County",
+            "type": "nominal"
         },
         "y":{
             "field": "Average availability per year",
             "type": "quantitative",
             "title": "Average availability per year (days)"
-        },
-        "color": {
-            "field": "County",
-            "type": "nominal",
-            "scale": {
-                "range": ["#FFA500", "#800080", "#00008B", "#800000", "#008000"]
+        }
+    },
+    "layer": [
+        {
+            "params": [
+                {
+                    "name": "county_highlight",
+                    "select": {"type": "point", "fields": ["County"], "on": "mouseover"}
+                }
+            ],
+            "mark": "bar",
+            "encoding": {
+                "color": {
+                    "field": "County",
+                    "type": "nominal",
+                    "scale": {
+                        "range": ["#FFA500", "#800080", "#00008B", "#800000", "#008000"]
+                    },
+                    "legend": ""
+                },
+
+                "fillOpacity": {
+                    "condition": {"param": "county_highlight", "value": 1},
+                    "value": 0.3
+                },
+                
+                "tooltip": [
+                    {"field": "Average Price", "title": "Average Price of Airbnb"},
+                    {"field": "Number of Instant Book"},
+                    {"field": "Number of calculated host listings count", "title": "No. of calculated host listings"}
+                ]
             }
         },
-        "tooltip": [
-            {"field": "Average Price", "title": "Average Price of Airbnb"},
-            {"field": "Number of Instant Book"},
-            {"field": "Number of calculated host listings count"}
-        ]
-    }
-  
+        {
+            "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "bottom",
+                "fontSize": 11,
+                "fontStyle": "italic"
+            },
+            "encoding": {
+                "text": {
+                    "field": "Neighbourhood Group",
+                    "type": "nominal"
+                },
+                "color": {"value": "black"},
+                "opacity": {
+                    "condition": {
+                        "test": "datum['Neighbourhood Group']=='Bronx' || datum['Neighbourhood Group']=='Manhattan' || datum['Neighbourhood Group']=='Queens' || datum['Neighbourhood Group']=='Staten Island' || datum['Neighbourhood Group']=='Brooklyn'",
+                        "value": 1
+                    },
+                    "value": 0
+                },
+                "tooltip": [
+                    {"field": "Average Price", "title": "Average Price of Airbnb"},
+                    {"field": "Number of Instant Book"},
+                    {"field": "Number of calculated host listings count", "title": "No. of calculated host listings"}
+                ]
+            }
+        }
+    ],
+    "config": {
+        "scale": {
+          "bandPaddingInner": 0.2
+        }
+      }
   }
   
