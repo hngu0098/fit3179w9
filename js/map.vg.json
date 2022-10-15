@@ -27,7 +27,7 @@
             "color": {
               "field": "properties.name",
               "type": "nominal",
-              "scale": {"scheme": "pastel2"},
+              "scale": {"range": ["#FF5A5F", "#C6017E", "#D51616", "#6F019C", "#FF385C"]},
               "title": "Boroughs"
             }
         }
