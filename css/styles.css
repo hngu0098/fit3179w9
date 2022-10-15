@@ -1,7 +1,12 @@
 body *{
-    font-family: 'Helvetica', sans-serif;
-    font-size: small;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:small
   }
+
+h1 {
+    font-weight: 900;
+    font-size: large;
+}
 
 body {
     background-color: lightgray;
@@ -26,7 +31,8 @@ h1 {
 
 .page {
     width: 850px;
-    background-color: lightgray;
+    background-color: white;
+    margin: auto;
     padding: 50px;
     padding-top: 35px;
 }
@@ -36,5 +42,5 @@ h1 {
 }
 
 .small-font {
-    font-size: 11px;
+    font-size: 12px;
 }
