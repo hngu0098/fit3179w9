@@ -1,49 +1,130 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "vconcat": [{
-    "width": 500,
-    "height": 300,
-    "projection": {"type": "naturalEarth1"},
-    "layer": [
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/js/new-york-city-boroughs.geojson",
-          "format": {"property": "features"}
-        },
-        "mark": {"type": "geoshape"},
-        "transform": [
-          {
-            "lookup": "properties.name",
-            "from": {
-              "data": {
-                "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20Boroughs%20in%20NYC.csv"
-              },
-              "key": "Borough"
+  "vconcat": [
+    {
+      "width": 600,
+      "height": 300,
+      "projection": {"type": "naturalEarth1"},
+      "layer": [
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/js/new-york-city-boroughs.geojson",
+            "format": {"property": "features"}
+          },
+          "mark": {"type": "geoshape"},
+          "transform": [
+            {
+              "lookup": "properties.name",
+              "from": {
+                "data": {
+                  "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20Boroughs%20in%20NYC.csv"
+                },
+                "key": "Borough"
+              }
             }
+          ],
+          "encoding": {
+              "color": {
+                "field": "properties.name",
+                "type": "nominal",
+                "scale": {"range": ["#FF5A5F", "#C6017E", "#D51616", "#6F019C", "#FF385C"]},
+                "title": "Boroughs",
+                "legend": {
+                  "orient": "none",
+                  "direction": "horizontal",
+                  "legendX": 120,
+                  "legendY": 340,
+                  "title": "Boroughs",
+                  "titleAnchor": "middle"
+                }
+              }
           }
-        ],
-        "encoding": {
-            "color": {
-              "field": "properties.name",
-              "type": "nominal",
-              "scale": {"range": ["#FF5A5F", "#C6017E", "#D51616", "#6F019C", "#FF385C"]},
-              "title": "Boroughs"
-            }
+        },
+        
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20Data.csv"
+          },
+          "mark": {"type": "circle", "tooltip": {"content": "data"}},
+          "encoding": {
+            "size": {"value": 6},
+            "color": {"value": "orange"},
+            "longitude": {"field": "Longtitude", "type": "quantitative"},
+            "latitude": {"field": "Latitude", "type": "quantitative"}
+          }
+        }
+      ]
+    },
+
+    {
+      "width": 600,
+      "height": 200,
+      "data": {
+        "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20Data.csv"
+      },
+      "encoding": { 
+        "x": { 
+          "field":"Construction Year", 
+          "type": "temporal",
+          "timeUnit": "year",
+          "title":""
+        },
+        "y": {
+          "aggregate": "count", 
+          "axis": {"tickCount":3,"grid":false},
+          "scale": {
+            "domain": [30,70]
+          },
+          "field": "Host Identity Verified",
+          "title": "Airbnbs Constructed"
         }
       },
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20Data.csv"
+      "layer": [
+        {
+          "mark": {"type": "line"}
         },
-        "mark": {"type": "circle", "tooltip": {"content": "data"}},
-        "encoding": {
-          "size": {"value": 6},
-          "color": {"value": "orange"},
-          "longitude": {"field": "Longtitude", "type": "quantitative"},
-          "latitude": {"field": "Latitude", "type": "quantitative"}
+        {
+          "mark": {"type": "circle", "tooltip": true},
+          "params": [{ 
+            "name":"time_hover",
+            "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
+            
+          }]
+        }
+      ]
+    },
+
+    {
+      "width": 600,
+      "height": 200,
+      "data": {
+        "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb.csv"
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {
+            "field": "Borough",
+            "type": "nominal",
+            "title": null
+        },
+        "y":{
+            "field": "Average availability per year",
+            "type": "quantitative",
+            "title": "Average availability per year (days)"
+        },
+        "color": {
+          "field": "Borough",
+          "scale": {"range": ["#FF5A5F", "#C6017E", "#D51616", "#6F019C", "#FF385C"]}
         }
       }
-    ]
-  }]
+      
+    }
+
+  ],
+  "config": {
+    "scale": {
+      "bandPaddingInner": 0.2
+    }
+  }
 
 }
