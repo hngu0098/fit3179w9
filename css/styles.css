@@ -1,17 +1,33 @@
 body *{
     font-family: 'Helvetica', sans-serif;
+    font-size: small;
   }
+
+body {
+    background-color: lightgray;
+}
 
 .vis-container {
     width: 100%;
 }
 
+.description h2,
+h1 {
+    margin-top: 0px;
+}
+
+.description-right {
+    padding-left: 20px;
+}
+
+.description-left {
+    padding-right: 20px;
+}
+
 .page {
     width: 850px;
-    background-color: white;
-    margin: auto;
-    padding-right: 20px;
-    padding-left: 20px;
+    background-color: lightgray;
+    padding: 50px;
     padding-top: 35px;
 }
 
