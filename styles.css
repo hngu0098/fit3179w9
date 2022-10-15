@@ -3,10 +3,6 @@ body *{
     font-size: small;
   }
 
-body {
-    background-color: lightgray;
-}
-
 .vis-container {
     width: 100%;
 }
