@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Vega-Lite Bar Chart</title>
+    <title>Data Visualization using Vega-Lite</title>
     <meta charset="utf-8" />
 
     <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
@@ -32,17 +32,21 @@
   </head>
   <body>
     <div class="page">
-
-      <h1>Vega-Lite Visualizations</h1>
-
+      <h1>Airbnb Data in New York City</h1>
+      <p>This visualisation is an overview of Airbnb data in New York City.</p>
+      
       <div class="pure-g">
-        <div class="pure-u-1-2">
-            <h2>Map</h2>
-            <p>This is the map of New York City, showing where all the Airbnb are at in the city. 
-              It is divided into 5 boroughs: Bronx, Brooklyn, Manhattan, Queens and Staten Island.</p>
-        </div>
-        <div class="pure-u-1-2">
+        <div class="pure-u-1-1">
           <div id="vis1" class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-1">
+          <h2>Overall Airbnb data in New York City</h2>
+          <p>The symbol map and bar chart above show the overview data of Airbnb in NYC, with the map shows where all the Airbnb are located in the city based on latitude and longtitude. 
+            The city is divided into 5 boroughs: Bronx, Brooklyn, Manhattan, Queens and Staten Island.
+            When select either a borough from the legend or from the bar chart, the visualisation will highlight
+            the chosen option, as well as showing the information relevant to the place. Furthermore, when hover over the point on the map, 
+            information about that particular place will be shown as well.
+          </p>
         </div>
       </div>
     </div>
