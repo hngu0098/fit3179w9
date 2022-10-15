@@ -87,7 +87,11 @@
         },
         "y":{
             "field": "Average Price",
-            "type": "quantitative"
+            "type": "quantitative",
+            "axis": {"tickCount":5},
+            "scale": {
+              "domain": [0,700]
+            }
         },
         "color": {
           "field": "Borough",
