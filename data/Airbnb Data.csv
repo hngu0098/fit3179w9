@@ -1,4 +1,4 @@
-Host Identity Verified,Borough,Neighbourhood,Latitude,Longtitude,Instant Bookable,Cancellation Policy,Room type,Construction Year,Price,Service fee,Minimum nights,Number of reviews,Review rate number,Availability pr year (days)
+Host Identity Verified,Borough,Neighbourhood,Latitude,Longtitude,Instant Bookable,Cancellation Policy,Room type,Construction Year,Price,Service fee,Minimum nights,Number of reviews,Review rate number,Availability per year (days)
 unconfirmed,Brooklyn,Kensington,40.65,-73.97,FALSE,strict,Private room,2020,966,193,10,9,4,286
 verified,Manhattan,Midtown,40.75,-73.98,FALSE,moderate,Entire home/apt,2007,142,28,30,45,4,228
 verified,Manhattan,East Harlem,40.8,-73.94,FALSE,moderate,Entire home/apt,2009,204,41,10,9,3,289
