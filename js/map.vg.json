@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Airbnb Data in New York City",
   "vconcat": [{
     "width": 500,
     "height": 300,
