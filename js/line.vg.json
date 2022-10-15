@@ -33,7 +33,7 @@
         "mark": {"type": "circle", "tooltip": true},
         "params": [{ 
           "name":"time_hover",
-          "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
+          "select": {"type": "point", "on": "mouseover"}
         }],
         "encoding": {
           "opacity": {
