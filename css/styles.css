@@ -1,6 +1,7 @@
 body *{
     font-family:Arial, Helvetica, sans-serif;
-    font-size:small
+    font-size:small;
+    background-color: #FFEFEF;
   }
 
 h1 {
@@ -14,7 +15,6 @@ body {
 
 .vis-container {
     width: 100%;
-    background-color: #FFEFEF;
 }
 
 .description h2,
