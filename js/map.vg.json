@@ -1,9 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "vconcat": [
+  "hconcat": [
     {
-      "width": 600,
-      "height": 300,
+      "width": 300,
+      "height": 250,
       "projection": {"type": "naturalEarth1"},
       "layer": [
         {
@@ -12,8 +12,7 @@
             "format": {"property": "features"}
           },
           "mark": {"type": "geoshape"},
-          "transform": [
-            {
+          "transform": [{
               "lookup": "properties.name",
               "from": {
                 "data": {
@@ -21,23 +20,14 @@
                 },
                 "key": "Borough"
               }
-            }
-          ],
+          }],
           "encoding": {
-              "color": {
-                "field": "properties.name",
-                "type": "nominal",
-                "scale": {"range": ["#FF5A5F", "#C6017E", "#D51616", "#6F019C", "#FF385C"]},
-                "title": "Boroughs",
-                "legend": {
-                  "orient": "none",
-                  "direction": "horizontal",
-                  "legendX": 120,
-                  "legendY": 293,
-                  "title": "Boroughs",
-                  "titleAnchor": "middle"
-                }
-              }
+            "color": {
+              "field": "properties.name",
+              "type": "nominal",
+              "scale": {"range": ["#FF5A5F", "#C6017E", "#D51616", "#6F019C", "#FF385C"]},
+              "title": "Boroughs"
+            }
           }
         },
         
@@ -45,94 +35,94 @@
           "data": {
             "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20Data.csv"
           },
-          "mark": {"type": "circle", "tooltip": {"content": "data"}},
+          "transform": [{
+            "filter": {"param": "b_highlight"}
+          }],
+          "mark": {"type": "circle"},
           "encoding": {
             "size": {"value": 6},
-            "color": {"value": "orange"},
+            "color": {"value": "yellow"},
             "longitude": {"field": "Longtitude", "type": "quantitative"},
-            "latitude": {"field": "Latitude", "type": "quantitative"}
+            "latitude": {"field": "Latitude", "type": "quantitative"},
+            "tooltip": [
+              {"field": "Host Identity Verified", "type": "nominal"},
+              {"field": "Neighbourhood", "type": "nominal"},
+              {"field": "Latitude", "type": "quantitative"},
+              {"field": "Longtitude", "type": "quantitative"},
+              {"field": "Instant Bookable", "type": "nominal"},
+              {"field": "Cancellation Policy", "type": "nominal"},
+              {"field": "Room type", "type": "nominal"},
+              {"field": "Construction Year", "type": "quantitative"},
+              {"field": "Price", "type": "quantitative"},
+              {"field": "Service fee", "type": "quantitative"},
+              {"field": "Minimum nights", "type": "quantitative"},
+              {"field": "Number of reviews", "type": "quantitative"},
+              {"field": "Review rate number", "type": "quantitative"},
+              {"field": "Availability per year (days)", "type": "quantitative"}
+            ]
           }
         }
       ]
     },
 
     {
-      "width": 600,
-      "height": 100,
-      "data": {
-        "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20Data.csv"
-      },
-      "encoding": { 
-        "x": { 
-          "field":"Construction Year", 
-          "type": "temporal",
-          "timeUnit": "year",
-          "title":""
-        },
-        "y": {
-          "aggregate": "count", 
-          "axis": {"tickCount":3,"grid":false},
-          "scale": {
-            "domain": [30,70]
-          },
-          "field": "Host Identity Verified",
-          "title": "Airbnbs Constructed"
-        },
-        "color": {
-          "value": "#FF5A5F"
-        }
-      },
-      "layer": [
-        {
-          "mark": {"type": "line"}
-        },
-        {
-          "mark": {"type": "circle", "tooltip": true},
-          "params": [{ 
-            "name":"time_hover",
-            "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
-          }],
-          "encoding": {
-            "opacity": {
-              "condition": {"test": {"param": "time_hover", "empty": false}, "value": 1},
-              "value":0
-            },
-            "size": {
-              "condition": {"test": {"param": "time_hover", "empty": false}, "value": 48},
-              "value": 100
-            }
-          }
-        }
-      ]
-    },
-
-    {
-      "width": 600,
+      "width": 200,
       "height": 200,
       "data": {
         "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb.csv"
       },
       "mark": "bar",
+      "params": [{
+        "name": "b_highlight",
+        "select": {"type": "point", "fields": ["Borough"], "on": "click"},
+        "bind": "legend"
+      }],
       "encoding": {
         "x": {
             "field": "Borough",
             "type": "nominal",
-            "title": null
+            "title": null,
+            "axis": null,
+            "sort": "y"
         },
         "y":{
-            "field": "Average availability per year",
-            "type": "quantitative",
-            "title": "Average availability per year (days)"
+            "field": "Average Price",
+            "type": "quantitative"
         },
         "color": {
           "field": "Borough",
-          "scale": {"range": ["#FF5A5F", "#C6017E", "#D51616", "#6F019C", "#FF385C"]}
-        }
+          "scale": {"range": ["#FF5A5F", "#C6017E", "#D51616", "#6F019C", "#FF385C"]},
+          "legend": {
+            "orient": "none",
+            "direction": "horizontal",
+            "legendX": 150,
+            "legendY": 235,
+            "title": "Boroughs",
+            "titleAnchor": "middle"                
+          }
+        },
+        "fillOpacity": {
+          "condition": {
+            "param": "b_highlight", 
+            "value": 1
+          },
+          "value": 0.3
+        },
+        "tooltip": [
+          {"field": "Average Price", "type": "quantitative"},
+          {"field": "Average availability per year", "type": "quantitative"},
+          {"field": "Average Service Fee", "type": "quantitative"},
+          {"field": "Minimum night stays", "type": "quantitative"},
+          {"field": "Average number of reviews", "type": "quantitative"},
+          {"field": "Average review rate number", "type": "quantitative"}
+        ]
+        
       }
       
     }
 
   ],
+
   "config": {
     "scale": {
       "bandPaddingInner": 0.2
