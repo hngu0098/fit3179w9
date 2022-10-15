@@ -33,15 +33,15 @@
         "mark": {"type": "circle", "tooltip": true},
         "params": [{ 
           "name":"time_hover",
-          "select": {"type": "point", "on": "mouseover"}
+          "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
         }],
         "encoding": {
           "opacity": {
-            "condition": {"test": {"param": "time_hover"}, "value": 1},
+            "condition": {"test": {"param": "time_hover", "empty": true}, "value": 1},
             "value":0
           },
           "size": {
-            "condition": {"test": {"param": "time_hover"}, "value": 48},
+            "condition": {"test": {"param": "time_hover", "empty": false}, "value": 48},
             "value": 100
           }
         }
