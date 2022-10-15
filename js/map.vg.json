@@ -33,7 +33,7 @@
                   "orient": "none",
                   "direction": "horizontal",
                   "legendX": 120,
-                  "legendY": 340,
+                  "legendY": 293,
                   "title": "Boroughs",
                   "titleAnchor": "middle"
                 }
@@ -58,7 +58,7 @@
 
     {
       "width": 600,
-      "height": 200,
+      "height": 100,
       "data": {
         "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20Data.csv"
       },
@@ -88,8 +88,17 @@
           "params": [{ 
             "name":"time_hover",
             "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
-            
-          }]
+          }],
+          "encoding": {
+            "opacity": {
+              "condition": {"test": {"param": "time_hover"}, "value": 1},
+              "value":0
+            },
+            "size": {
+              "condition": {"test": {"param": "time_hover"}, "value": 48},
+              "value": 100
+            }
+          }
         }
       ]
     },
