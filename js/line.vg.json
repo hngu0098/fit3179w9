@@ -1,0 +1,57 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 100,
+    "data": {
+      "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20Data.csv"
+    },
+    "encoding": { 
+      "x": { 
+        "field":"Construction Year", 
+        "type": "temporal",
+        "timeUnit": "year",
+        "title":""
+      },
+      "y": {
+        "aggregate": "count", 
+        "axis": {"tickCount":3,"grid":false},
+        "scale": {
+          "domain": [30,70]
+        },
+        "field": "Host Identity Verified",
+        "title": "Number of locations"
+      },
+      "color": {
+        "value": "#FF5A5F"
+      }
+    },
+    "layer": [
+      {
+        "mark": {"type": "line"}
+      },
+      {
+        "mark": {"type": "circle", "tooltip": true},
+        "params": [{ 
+          "name":"time_hover",
+          "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
+        }],
+        "encoding": {
+          "opacity": {
+            "condition": {"test": {"param": "time_hover", "empty": true}, "value": 1},
+            "value":0
+          },
+          "size": {
+            "condition": {"test": {"param": "time_hover", "empty": true}, "value": 48},
+            "value": 100
+          }
+        }
+      }
+    ],
+
+    "config": {
+      "scale": {
+        "bandPaddingInner": 0.2
+      },
+      "background": "#FFEFEF"
+    }
+  }
