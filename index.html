@@ -39,8 +39,7 @@
         <div class="pure-u-1-2">
             <h2>Map</h2>
             <p>This is the map of New York City, showing where all the Airbnb are at in the city. 
-              It is divided into 5 counties (neighbourhood groups): Bronx (Bronx), Kings (Brooklyn), 
-              New York (Manhattan), Queens (Queens) and Richmond (Staten Island).</p>
+              It is divided into 5 boroughs: Bronx, Brooklyn, Manhattan, Queens and Staten Island.</p>
         </div>
         <div class="pure-u-1-2">
           <div id="vis1" class="vis-container"></div>
@@ -48,7 +47,7 @@
       </div>
 
       <!-- pure grid group -->
-      <div class="pure-g">
+      <!--<div class="pure-g">
         <div class="pure-u-1-2">
             <h2>Chart</h2>
             <p>This chart is about </p>
@@ -56,7 +55,7 @@
         <div class="pure-u-1-2">
           <div id="vis2" class="vis-container"></div>
         </div>
-      </div>
+      </div>-->
       <!-- end pure grid group -->
 
     </div>
@@ -65,23 +64,23 @@
 
     <script type="text/javascript">
       var specVis1 = "js/map.vg.json";
-      var specVis2 = "js/chart.vg.json";
+      //var specVis2 = "js/chart.vg.json";
   
       vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
   
-      vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+      //vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
+      //}).catch(console.error);
   
       vegaEmbed('#vis3', specVis1, { "actions": false }).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
   
-      vegaEmbed('#vis4', specVis2, { "actions": false }).then(function (result) {
+     // vegaEmbed('#vis4', specVis2, { "actions": false }).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
+     // }).catch(console.error);
 
     </script>
 
