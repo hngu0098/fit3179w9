@@ -1,6 +1,11 @@
 body *{
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Arial', sans-serif;
+    font-size: small;
   }
+
+body {
+    background-color: lightgray;
+}
 
 .vis-container {
     width: 100%;
@@ -8,11 +13,10 @@ body *{
 
 .page {
     width: 850px;
-    background-color: white;
+    background-color: lightgray;
     margin: auto;
-    padding: 50px;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 20px;
+    padding-left: 20px;
     padding-top: 35px;
 }
 
