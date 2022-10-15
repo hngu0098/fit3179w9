@@ -35,9 +35,6 @@
     ],
 
     "config": {
-      "scale": {
-        "bandPaddingInner": 0.2
-      },
       "background": "#FFEFEF"
     }
   }
