@@ -1,7 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "columns": 2,
-    "concat": [
+    "hconcat": [
         {
             "data": {
                 "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20(Nominal).csv"
@@ -145,7 +144,10 @@
             ]
         }
         
-    ]
+    ],
+    "config": {
+        "background": "#FFEFEF"
+      }
 }
 
 
