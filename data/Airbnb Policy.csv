@@ -1,16 +1,4 @@
-﻿Borough,Cancellation Policy,
-Brooklyn,Strict cancellation,159
-Manhattan,Strict cancellation,181
-Staten Island,Strict cancellation,4
-Bronx,Strict cancellation,2
-Queens,Strict cancellation,20
-Brooklyn,Moderate cancellation,146
-Manhattan,Moderate cancellation,154
-Staten Island,Moderate cancellation,3
-Bronx,Moderate cancellation,5
-Queens,Moderate cancellation,15
-Brooklyn,Flexible cancellation,142
-Manhattan,Flexible cancellation,133
-Staten Island,Flexible cancellation,4
-Bronx,Flexible cancellation,5
-Queens,Flexible cancellation,26
+Cancellation Policy,
+Strict cancellation,366
+Moderate cancellation,323
+Flexible cancellation,310
