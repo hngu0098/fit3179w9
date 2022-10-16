@@ -1,0 +1,11 @@
+﻿Borough,Verified or unconfirmed,Host Value,Instant or not instant book,Instant value,Private room or entire home/apt,Home value
+Brooklyn,Host verified,220,Instant book,230,Number of Private Room,166
+Manhattan,Host verified,241,Instant book,211,Number of Private Room,165
+Staten Island,Host verified,5,Instant book,5,Number of Private Room,8
+Bronx,Host verified,7,Instant book,4,Number of Private Room,7
+Queens,Host verified,28,Instant book,35,Number of Private Room,37
+Brooklyn,Host unconfirmed,227,Not instant book,217,Number of Entire Home/Apt,280
+Manhattan,Host unconfirmed,227,Not instant book,257,Number of Entire Home/Apt,298
+Staten Island,Host unconfirmed,6,Not instant book,6,Number of Entire Home/Apt,3
+Bronx,Host unconfirmed,5,Not instant book,8,Number of Entire Home/Apt,5
+Queens,Host unconfirmed,33,Not instant book,26,Number of Entire Home/Apt,22
