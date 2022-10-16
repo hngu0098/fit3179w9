@@ -2,6 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "hconcat": [
         {
+            "title": {"text": "Host identity verified", "orient": "bottom", "fontSize": 11, "dy": 15},
             "data": {
                 "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20(Nominal).csv"
             },
@@ -39,6 +40,7 @@
             ]
         },
         {
+            "title": {"text":"Instant book", "orient": "bottom", "fontSize": 11, "dy": 15},
             "data": {
                 "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20(Nominal).csv"
             },
@@ -48,8 +50,7 @@
                 "theta": {"field": "Instant value", "type": "quantitative", "title":"Number of Airbnb", "stack": true},
                 "color": {
                     "field": "Instant or not instant book", 
-                    "type": "nominal",
-                    "scale": {"range": ["#FBF9CB", "#00A669"]}
+                    "type": "nominal"
                 }
             },
             "layer":[
@@ -75,17 +76,16 @@
             ]            
         },
         {
+            "title": {"text": "Type of accommodation", "orient": "bottom", "fontSize": 11, "dy": 15},
             "data": {
                 "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20(Nominal).csv"
             },
             "width": 150,
             "height": 150,
-            "mark": {"type": "arc", "tooltip": true},
             "encoding": {
                 "theta": {"field": "Home value", "type": "quantitative", "title": "Number", "stack": true},
                 "color": {"field": "Private room or entire home/apt", "type": "nominal"}
             },
-
             "layer":[
                 {
                     "mark": {
@@ -97,7 +97,7 @@
                     "mark": {
                         "type": "text",
                         "radius": 40,
-                        "angle": -45
+                        "angle": 310
                     },
                     "encoding": {
                         "text": {
@@ -111,12 +111,12 @@
         },
 
         {
+            "title": {"text": "Cancellation policy", "orient": "bottom", "fontSize": 11, "dy": 15},
             "data": {
                 "url": "https://raw.githubusercontent.com/hngu0098/fit3179w9/main/data/Airbnb%20Policy.csv"
             },
             "width": 150,
             "height": 150,
-            "mark": {"type": "arc", "tooltip": true},
             "encoding": {
                 "theta": {"field": "Value", "type": "quantitative", "stack": true},
                 "color": {"field": "Cancellation Policy", "type": "nominal"}
