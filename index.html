@@ -65,6 +65,19 @@
             <div id="vis2" class="vis-container"></div>
           </div>
         </div>
+       <div class="pure-u-1-2">
+          <div class="description description-left">
+            <h2>Two Columns Layout</h2>
+            <p>The first column contains text and the second column contains a visualisation.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. 
+            </p>
+          </div>
+        </div>
+        <div class="pure-u-1-2">
+          <div id="vis3" class="vis-container"></div>
+        </div>
       </div>
 
     <!-- Container for the visualization -->
@@ -72,6 +85,7 @@
     <script type="text/javascript">
       var specVis1 = "js/map.vg.json";
       var specVis2 = "js/line.vg.json";
+      var specVis3 = "js/pie.vg.json";
   
       vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
