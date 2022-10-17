@@ -83,7 +83,7 @@
             "width": 150,
             "height": 150,
             "encoding": {
-                "theta": {"field": "Value", "type": "quantitative", "title": "Number", "stack": true},
+                "theta": {"field": "Number of rooms", "type": "quantitative", "stack": true},
                 "color": {"field": "Room type", "type": "nominal"}
             },
             "layer":[
@@ -118,7 +118,7 @@
             "width": 150,
             "height": 150,
             "encoding": {
-                "theta": {"field": "Value", "type": "quantitative", "stack": true},
+                "theta": {"field": "Number of listings", "type": "quantitative", "stack": true},
                 "color": {"field": "Cancellation Policy", "type": "nominal"}
             },
             "layer":[
