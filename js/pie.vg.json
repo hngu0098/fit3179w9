@@ -14,7 +14,7 @@
                     "field": "Host verified or unconfirmed", 
                     "type": "nominal", 
                     "legend": null,
-                    "scale": {"range": ["#B452E4", "#5ABEFF", "#FF0BAC", "#FF5A60", "#3831B7", "#A6048B", "#FF5AED", "#DA3F59", "#5C038C"]}
+                    "scale": {"range": ["#5ABEFF", "#B452E4", "#FF0BAC", "#FF5A60", "#3831B7", "#A6048B", "#00A699", "#FF5AED", "#DA3F59", "#5C038C"]}
                 }
             },
             "layer":[
